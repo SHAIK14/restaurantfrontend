@@ -1,7 +1,6 @@
-// src/components/OrderForm.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import "./styles.css";
 function OrdersList({ tableNumber }) {
   const [orders, setOrders] = useState([]);
 
@@ -23,7 +22,7 @@ function OrdersList({ tableNumber }) {
   const handleDeleteOrder = async (orderId) => {
     try {
       await axios.delete(`http://localhost:4000/api/deleteOrder/${orderId}`);
-      // Update the orders list after successful deletion
+
       setOrders((prevOrders) =>
         prevOrders.filter((order) => order.id !== orderId)
       );
@@ -33,13 +32,18 @@ function OrdersList({ tableNumber }) {
   };
 
   return (
-    <div>
+    <div className="showdata">
       <h2>Orders List for Table {tableNumber}</h2>
       <ul>
         {orders.map((order) => (
           <li key={order.id}>
             Dish: {order.dish} - Price: {order.price}
-            <button onClick={() => handleDeleteOrder(order.id)}>Delete</button>
+            <button
+              className="btn-del"
+              onClick={() => handleDeleteOrder(order.id)}
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>
@@ -50,7 +54,7 @@ function OrdersList({ tableNumber }) {
 function OrderForm() {
   const [dish, setDish] = useState("");
   const [price, setPrice] = useState("");
-  const [tableNumber, setTableNumber] = useState("1"); // Default to Table 1
+  const [tableNumber, setTableNumber] = useState("1");
 
   const handleAddToBill = async () => {
     try {
@@ -66,9 +70,9 @@ function OrderForm() {
   };
 
   return (
-    <div>
+    <div className="form">
       <h2>Add to Bill</h2>
-      <div>
+      <div className="dish">
         <label>Dish:</label>
         <input
           type="text"
@@ -76,7 +80,7 @@ function OrderForm() {
           onChange={(e) => setDish(e.target.value)}
         />
       </div>
-      <div>
+      <div className="price">
         <label>Price:</label>
         <input
           type="text"
@@ -84,7 +88,7 @@ function OrderForm() {
           onChange={(e) => setPrice(e.target.value)}
         />
       </div>
-      <div>
+      <div className="table">
         <label>Table Number:</label>
         <select
           value={tableNumber}
@@ -95,7 +99,9 @@ function OrderForm() {
           <option value="3">Table 3</option>
         </select>
       </div>
-      <button onClick={handleAddToBill}>Add to Bill</button>
+      <button className="btn-add" onClick={handleAddToBill}>
+        Add to Bill
+      </button>
       <OrdersList tableNumber={tableNumber} />
     </div>
   );

@@ -1,0 +1,84 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.dish,
+.price,
+.table {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.dish label,
+.price label,
+.table label {
+  margin-bottom: 6px;
+}
+
+.dish input,
+.price input,
+.table select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-add {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.showdata {
+  margin-top: 50px;
+}
+
+.showdata h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.showdata ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.showdata li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-del {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
