@@ -1,5 +1,14 @@
+// src/App.js
+import React from "react";
+
+import OrderForm from "./components/OrderForm";
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <OrderForm />
+    </div>
+  );
 }
 
 export default App;
